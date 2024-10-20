@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация падающих листьев</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: transparent; /* Прозрачный фон */
+        }
+
+        .leaf-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .leaf {
+            position: absolute;
+            top: -100px;
+            width: 50px;
+            height: 50px;
+            background-color: #FFA500; /* Цвет листа - оранжевый */
+            border-radius: 50%;
+            animation: fall 5s linear infinite, sway 2s ease-in-out infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        @keyframes sway {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            50% {
+                transform: translateX(20px);
+            }
+        }
+
+        .leaf:nth-child(1) {
+            left: 20%;
+            animation-delay: 0s, 0s;
+        }
+
+        .leaf:nth-child(2) {
+            left: 50%;
+            animation-delay: 2s, 1s;
+        }
+
+        .leaf:nth-child(3) {
+            left: 70%;
+            animation-delay: 1s, 0.5s;
+        }
+
+        .leaf:nth-child(4) {
+            left: 90%;
+            animation-delay: 3s, 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="leaf-container">
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+        <div class="leaf"></div>
+    </div>
+</body>
+</html>
